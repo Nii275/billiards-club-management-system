@@ -1,0 +1,10 @@
+export type Permissions={manageMembers:boolean;manageMatches:boolean;approveChallenges:boolean;createChallenge:boolean};
+export function permissionsFor(role:string):Permissions;
+export function maskStudentId(value:string):string;
+export function maskContact(value:string):string;
+export function approveChallenge(challenge:{challengerConfirmed:boolean;opponentConfirmed:boolean;winnerId:string;loserId:string}):{status:string;points:Record<string,number>};
+export function calculateElo(winnerRating:number,loserRating:number,score:number,k?:number):{winner:number;loser:number;delta:number};
+export function buildSingleElimination(players:string[]):{size:number;matches:{home:string|null;away:string|null}[];byes:number};
+export function schoolMatchesMode(school:string,mode:string):boolean;
+export function resolvePointAward(value?:{winnerPoints?:number;loserPoints?:number}):{winner:number;loser:number};
+export function validatePointAdjustment(value:number):number;
